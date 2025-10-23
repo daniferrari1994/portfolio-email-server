@@ -1,0 +1,14 @@
+# Herramientas de desarrollo
+# Estos archivos son solo para desarrollo local y testing
+
+# Si quieres ignorar las herramientas de desarrollo en producción,
+# descomenta las siguientes líneas:
+
+# *.bat
+# *.sh
+# test-email.html
+# README.md
+
+# Archivos temporales que puedan generar los scripts
+temp_*
+*.tmp

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Email System</title>
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: #1a1a1a;
+            color: #ffffffea;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .container {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #459c8c;
+        }
+        h1 {
+            color: #5ad3bd;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #5ad3bd;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            background: #1d1d1d;
+            border: 1px solid #459c8c;
+            border-radius: 6px;
+            color: #ffffffea;
+            font-family: inherit;
+        }
+        button {
+            background: transparent;
+            border: 1px solid #5ad3bd;
+            color: #5ad3bd;
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #459c8c;
+            color: #333;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+        .success {
+            background: rgba(72, 187, 120, 0.1);
+            border: 1px solid #48bb78;
+            color: #48bb78;
+        }
+        .error {
+            background: rgba(245, 101, 101, 0.1);
+            border: 1px solid #f56565;
+            color: #f56565;
+        }
+        .loading {
+            text-align: center;
+            color: #5ad3bd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Email System</h1>
+        
+        <form id="emailForm">
+            <div class="form-group">
+                <label for="firstName">Nombre:</label>
+                <input type="text" id="firstName" name="firstName" value="Juan" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">Apellido:</label>
+                <input type="text" id="lastName" name="lastName" value="Pérez" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="test@example.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phoneNumber">Teléfono:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" value="+54 9 11 1234-5678">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="4" required>Hola! Este es un mensaje de prueba del sistema de email del portfolio.</textarea>
+            </div>
+            
+            <button type="submit" id="submitBtn">
+                🚀 Enviar Email de Prueba
+            </button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('emailForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Mostrar loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = '📧 Enviando...';
+            result.style.display = 'none';
+            
+            // Obtener datos del formulario
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phoneNumber: document.getElementById('phoneNumber').value,
+                message: document.getElementById('message').value,
+                language: 'es'
+            };
+            
+            try {
+                // Enviar al servidor
+                const response = await fetch('http://localhost:3001/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    // Éxito
+                    result.className = 'result success';
+                    result.innerHTML = `
+                        <strong>✅ ¡Email enviado exitosamente!</strong><br>
+                        ${data.message}<br><br>
+                        <small>Verifica tu email para el mensaje del contacto y que ${formData.email} haya recibido la confirmación.</small>
+                    `;
+                } else {
+                    // Error del servidor
+                    result.className = 'result error';
+                    result.innerHTML = `
+                        <strong>❌ Error al enviar email:</strong><br>
+                        ${data.error || 'Error desconocido'}<br><br>
+                        <small>Verifica la configuración del servidor y las variables de entorno.</small>
+                    `;
+                }
+            } catch (error) {
+                // Error de red/conexión
+                result.className = 'result error';
+                result.innerHTML = `
+                    <strong>❌ Error de conexión:</strong><br>
+                    ${error.message}<br><br>
+                    <small>¿Está ejecutándose el servidor en puerto 3001?</small>
+                `;
+            }
+            
+            // Restaurar botón
+            submitBtn.disabled = false;
+            submitBtn.textContent = '🚀 Enviar Email de Prueba';
+            result.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
