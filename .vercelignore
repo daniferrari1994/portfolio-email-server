@@ -1,0 +1,10 @@
+node_modules
+.env
+.env.local
+.git
+*.log
+server.js
+dev-tools/
+README.md
+LICENSE
+SECURITY.md

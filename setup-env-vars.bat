@@ -1,0 +1,41 @@
+@echo off
+echo.
+echo 🔧 Configuración de Variables de Entorno para Vercel
+echo ==================================================
+echo.
+echo Las siguientes variables necesitan ser configuradas:
+echo.
+echo 1. EMAIL_SERVICE (gmail, outlook, etc.)
+echo 2. EMAIL_USER (tu email para enviar)
+echo 3. EMAIL_PASS (app password - NO tu contraseña normal)
+echo 4. OWNER_EMAIL (email donde recibes los mensajes)
+echo 5. FRONTEND_URL (URL de tu portfolio frontend)
+echo.
+echo Comandos para configurar (reemplaza los valores):
+echo.
+echo vercel env add EMAIL_SERVICE production
+echo vercel env add EMAIL_USER production
+echo vercel env add EMAIL_PASS production
+echo vercel env add OWNER_EMAIL production
+echo vercel env add FRONTEND_URL production
+echo.
+echo Ejemplo de valores:
+echo EMAIL_SERVICE: gmail
+echo EMAIL_USER: tu-email@gmail.com
+echo EMAIL_PASS: tu-app-password-de-16-caracteres
+echo OWNER_EMAIL: donde-quieres-recibir-mensajes@gmail.com
+echo FRONTEND_URL: https://tu-portfolio.vercel.app
+echo.
+echo 📋 Pasos adicionales:
+echo 1. Configura una App Password en Gmail:
+echo    - Ve a tu cuenta de Google
+echo    - Seguridad ^> Verificación en 2 pasos ^> Contraseñas de aplicaciones
+echo    - Genera una nueva contraseña para 'Correo'
+echo.
+echo 2. Después de configurar las variables, redeploy:
+echo    vercel --prod
+echo.
+echo 3. Prueba la API:
+echo    curl https://portfolio-email-server-kprulsz0p-dan-leons-projects-9fc65c34.vercel.app/api/health
+echo.
+pause

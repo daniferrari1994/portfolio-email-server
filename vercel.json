@@ -1,23 +1,9 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    }
-  ],
+  "outputDirectory": "public",
   "functions": {
     "api/send-email.js": {
       "maxDuration": 30
     }
-  },
-  "env": {
-    "NODE_ENV": "production"
   }
 }

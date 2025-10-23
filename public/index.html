@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Email Server API</title>
+    <meta charset="utf-8">
+    <style>
+        body { 
+            font-family: 'Roboto Mono', monospace; 
+            max-width: 600px; 
+            margin: 50px auto; 
+            padding: 20px;
+            background: #1a1a1a;
+            color: #ffffffea;
+        }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { color: #5ad3bd; }
+        .endpoint { 
+            background: #2d2d2d; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 8px;
+            border-left: 4px solid #5ad3bd;
+        }
+        .method { 
+            color: #5ad3bd; 
+            font-weight: bold; 
+            margin-right: 10px; 
+        }
+        code { 
+            background: #333; 
+            padding: 2px 6px; 
+            border-radius: 4px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📧 Portfolio Email Server API</h1>
+        <p>Serverless email functions for portfolio contact form</p>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">GET</span><code>/api/health</code></div>
+        <p>Health check endpoint - verifica que el servicio esté funcionando</p>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">POST</span><code>/api/send-email</code></div>
+        <p>Envía emails de contacto desde el formulario del portfolio</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid #459c8c;">
+        <p><strong>Dan Ferrari</strong> - Desarrollador Full Stack</p>
+        <p style="font-size: 14px; color: #b0b0b0;">
+            API desplegada en Vercel
+        </p>
+    </div>
+</body>
+</html>
