@@ -1,21 +1,22 @@
-# 📧 Portfolio Email Server
+# 📧 Portfolio Email Server (Serverless)
 
-Servidor backend personalizado para manejo de emails de contacto en portfolios. Reemplaza servicios como EmailJS con una solución propia más segura y personalizable.
+Funciones serverless para manejo de emails de contacto en portfolios. Desplegado en **Vercel** de forma 100% gratuita.
 
 ## 🎯 Características
 
+- ✅ **100% Serverless** - Solo paga cuando se usa
+- ✅ **Completamente GRATUITO** en Vercel
+- ✅ **Deploy automático** desde GitHub
 - ✅ **Envío dual de emails**: Notificación al propietario + confirmación al usuario
 - ✅ **Templates HTML personalizados** en español e inglés
 - ✅ **Seguridad robusta**: Rate limiting, validaciones, CORS
 - ✅ **Compatible con Gmail** mediante App Password
-- ✅ **Sin dependencias externas** como EmailJS
 
 ## 🚀 Tecnologías
 
-- **Node.js** + **Express**
+- **Vercel Functions** (Serverless)
 - **Nodemailer** 7.0.9 (sin vulnerabilidades)
-- **Helmet** para seguridad
-- **Express Rate Limit** para protección contra spam
+- **Rate limiting** integrado
 
 ## 🔧 Configuración Rápida
 
