@@ -167,7 +167,40 @@ El servidor registra automáticamente:
 - Comportamiento normal de protección
 - Ajustar límites si necesario
 
-## 🤝 Contribuir
+## � Testing
+
+Este proyecto cuenta con una suite completa de tests unitarios que garantiza su funcionalidad:
+
+### 📊 Estadísticas de Testing
+- **✅ 13 tests pasando al 100%**
+- **🎯 93.22% cobertura en send-email.js**
+- **🎯 70% cobertura en health.js**
+- **⚡ 0% errores en última ejecución**
+
+### 🔍 Tests Implementados
+- Validación de entrada (campos requeridos, formato de email)
+- Funcionalidad de envío de emails
+- Manejo de errores SMTP
+- Configuración CORS
+- Health checks
+- Templates multiidioma
+- Configuración de transportador
+
+### 📝 Comandos de Testing
+```bash
+# Ejecutar todos los tests
+npm test
+
+# Ejecutar tests en modo watch
+npm run test:watch
+
+# Ejecutar tests con reporte de cobertura
+npm run test:coverage
+```
+
+Para más detalles, ver [TESTING_REPORT.md](./TESTING_REPORT.md).
+
+## �🤝 Contribuir
 
 1. Fork el proyecto
 2. Crear rama para feature (`git checkout -b feature/nueva-funcionalidad`)
