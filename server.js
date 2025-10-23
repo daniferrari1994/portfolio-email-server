@@ -135,7 +135,7 @@ const getOwnerEmailTemplate = (formData) => {
       <div style="font-family: 'Roboto Mono', monospace; max-width: 600px; margin: 0 auto; background-color: #f8f9fa; padding: 20px; border-radius: 10px;">
         <div style="text-align: center; margin-bottom: 30px; background-color: #1a1a1a; padding: 20px; border-radius: 8px;">
           <h1 style="color: #5ad3bd; margin-bottom: 10px;">Nuevo mensaje de contacto</h1>
-          <p style="color: #ffffffea; font-size: 16px;">Portfolio - Dani Ferrari</p>
+          <p style="color: #ffffffea; font-size: 16px;">Portfolio - Dan Ferrari</p>
         </div>
         
         <div style="background-color: white; padding: 25px; border-radius: 8px; border-left: 4px solid #5ad3bd; margin-bottom: 20px;">
